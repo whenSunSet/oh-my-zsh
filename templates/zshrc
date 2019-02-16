@@ -91,3 +91,10 @@ alias j=z
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completioe
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fg() {
+    if [[ $# -eq 1 && $1 = - ]]; then
+        builtin fg %-
+    else
+        builtin fg %"$@"
+    fi
+}
